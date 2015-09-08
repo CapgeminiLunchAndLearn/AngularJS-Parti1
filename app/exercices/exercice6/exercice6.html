@@ -1,0 +1,93 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<title>Lunch And Learn Application</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body ng-app="LunchAndLearnApp">
+	
+	<main id="main-content" class="container">	
+
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+		<div class="navbar-header">
+		  <a class="navbar-brand" href="#">
+			<img src="http://architectureweek.capgemini.com/images/Capgemini/logoCapgeminiSpade.png" height="20px"/>
+		  </a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li><a href="../exercice1/exercice1.html">Exercice 1</a></li>
+			<li><a href="../exercice2/exercice2.html">Exercice 2</a></li>
+			<li><a href="../exercice3/exercice3.html">Exercice 3</a></li>
+			<li><a href="../exercice4/exercice4.html">Exercice 4</a></li>
+			<li><a href="../exercice5/exercice5.html">Exercice 5</a></li>
+			<li><a href="../exercice6/exercice6.html">Exercice 6</a></li>
+		</ul>
+	  </div>
+	</nav>	
+	
+	<!-- ---------------- -->
+	<!-- Début Exercice 6 -->
+	
+	<div ng-controller="Exercice6Ctrl">
+	
+		<div class="alert alert-info" role="alert"><strong>Exercice 6 : </strong>Affiche la liste des commentaires et un bouton qui permet d'ajouter un commentaire à la liste.</div>
+
+		<hr/>
+
+		<div ng-show="displayList">
+			<!-- Au clic, appel une fonction pour masquer la liste des commentaires et afficher le formulaire d'ajout de commentaire -->
+			<button class="btn btn-primary pull-right">Ajouter</button>
+			<h3>Commentaires <span class="badge">{{commentList.length}}</span></h3>
+
+
+			<div ng-repeat="comment in commentList" class="panel panel-default">
+				<div class="panel-body">
+					<p>
+						<strong>Nom</strong> : {{comment.name}}<br/>
+						<strong>Email</strong> : {{comment.email}}
+					</p>
+					<p>{{comment.body}}</p>
+				</div>
+			</div>
+		</div>
+
+		<div ng-show="!displayList">
+			<form>
+				<!-- Bind les input avec un "objet" javascript qui correspond à une variable -->
+				<div class="form-group form-inline">
+					<label for="name">Nom : </label>
+					<input type="text" class="form-control" id="name" >
+				</div>
+				<div class="form-group form-inline">
+					<label for="email">Email : </label>
+					<input type="email" class="form-control" id="email" >
+				</div>
+				<div class="form-group">
+					<label for="comment">Commentaire : </label>
+					<textarea class="form-control" rows="3" id="comment"></textarea>
+				</div>
+				<!-- Au clic, appel une fonction pour ajouter le commentaire à la liste, masque le formulaire d'ajout de commentaire et affiche la liste des commentaires -->
+				<button type="submit" class="btn btn-default">Ajouter</button>
+			</form>
+		</div>
+
+	</div>
+	<!-- Fin Exercice 6 -->
+	<!-- -------------- -->
+	
+	</main>
+	
+	<!-- Lib JS -->
+	<script src="../../lib/jquery/dist/jquery.js"></script>
+	<script src="../../lib/angular/angular.js"></script>
+	<script src="../../lib/angular-route/angular-route.js"></script>
+	<script src="../../lib/bootstrap/dist/js/bootstrap.js"></script>
+	
+	<!-- JS interne -->
+	<script src="../../app.js"></script>
+	<script src="exercice6.js"></script>
+	</body>
+</html>
